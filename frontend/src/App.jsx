@@ -3,10 +3,12 @@ import { Layout, Menu, theme } from "antd";
 
 import { SIDEBAR_MENUITEMS } from "@/constants/data";
 import ProjectSelector from "@/components/sidebar/ProjectSelector";
-import NotFoundPage from "./pages/404";
-import DashboardPage from "./pages/dashboard";
+import NotFoundPage from "@/pages/404";
+import DashboardPage from "@/pages/dashboard";
+import CreateDatasourcePage from "@/pages/datasource/create";
+import ConfigDatabase from "./pages/datasource/createsteps/ConfigDatabase";
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 const AppLayout = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -62,6 +64,8 @@ const App = () => {
     <Routes>
       <Route path="/*" element={<AppLayout />}>
         <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="data-source/new" element={<CreateDatasourcePage />} />
+        <Route path="test/config-db" element={<ConfigDatabase />} />
         <Route path="*" element={<Navigate to="/404" />} />
       </Route>
       <Route path="/404" element={<NotFoundPage />} />

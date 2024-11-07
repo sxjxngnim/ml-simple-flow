@@ -1,10 +1,10 @@
 import ConfusionMatrixChart from "@/components/charts/ConfusionMatrixChart";
-import DatasetSampleChart from "@/components/charts/DatasetSampleChart";
+import DatasetSampleChart from "@/components/charts/DataCollectionChart";
 import FeatureImportanceChart from "@/components/charts/FeatureImportanceChart";
 import PrecisionRecallChart from "@/components/charts/PrecisionRecallChart";
 import ROCCurveChart from "@/components/charts/ROCCurveChart";
 import { Icon } from "@iconify/react";
-import { Badge, Button, Card, Col, Descriptions, Flex, List, Row, Space, Statistic, Table, Tag, Typography } from "antd";
+import { Badge, Button, Card, Col, Flex, List, Row, Space, Statistic, Table, Tag, Typography } from "antd";
 
 const DashboardPage = () => {
   return (
