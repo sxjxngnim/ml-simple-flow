@@ -13,8 +13,6 @@ Welcome to the **MLSimpleFlow** frontend repository! This application is a web-b
   - [Pipeline Management](#pipeline-management)
   - [Model Versioning](#model-versioning)
 - [Technology Stack](#technology-stack)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -79,9 +77,9 @@ npm run dev
 
 Navigate to `http://localhost:5173` in your web browser.
 
-### Usage
+## Usage
 
-#### Data Collection Management
+### Data Collection Management
 
 - Navigate to the Data Collection section.
 - Create a new data collection task by specifying the data source and parameters.
@@ -92,7 +90,7 @@ Navigate to `http://localhost:5173` in your web browser.
   - Web Crawlers: Define crawling parameters and target websites.
 - Manage existing tasks: view details, edit configurations, or delete tasks.
 
-#### Pipeline Management
+### Pipeline Management
 
 - Go to the Pipelines section to manage machine learning pipelines.
 - Create a new pipeline:
@@ -110,14 +108,15 @@ Navigate to `http://localhost:5173` in your web browser.
   - Trains the model and optimizes hyperparameters.
 - View execution results, including success or failure notifications.
 
-#### Model Versioning
+### Model Versioning
+
 - Access the Model Versions section to track and manage different versions.
 - Features:
   - Compare model performance metrics like Accuracy, Precision, Recall, F1 Score (for classification), and MAE, MSE, RMSE (for regression).
   - Visualize differences in optimized hyperparameters.
   - Select the best-performing model version for deployment.
 
-### Technology Stack
+## Technology Stack
 
 - Frontend Framework: React.js
 - UI Library: Ant Design
