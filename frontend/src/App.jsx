@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, Outlet, Navigate } from "react-router-dom";
+import { Layout, Menu, theme } from "antd";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { SIDEBAR_MENUITEMS } from "@/constants/data";
+import ProjectSelector from "@/components/sidebar/ProjectSelector";
+import NotFoundPage from "./pages/404";
+import DashboardPage from "./pages/dashboard";
+
+const { Header, Content, Sider } = Layout;
+const AppLayout = () => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Layout>
+      <Sider
+        breakpoint="lg"
+        style={{
+          position: "fixed",
+          overflow: 'auto',
+          insetInlineStart: 0,
+          top: 0,
+          bottom: 0,
+        }}
+        width={256}
+        theme="light"
+      >
+        <div className="demo-logo-vertical" />
+        <ProjectSelector />
+        <Menu theme="light" mode="inline" items={SIDEBAR_MENUITEMS} />
+      </Sider>
+      <Layout
+        style={{
+          marginInlineStart: 256,
+        }}
+      >
+        <Content
+          style={{
+            margin: '24px 16px 0',
+            overflow: 'initial',
+          }}
+        >
+          <div
+            style={{
+              padding: 24,
+              minHeight: "calc(100vh - 64px)",
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
+          >
+            <Outlet />
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
   )
-}
+};
 
-export default App
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/*" element={<AppLayout />}>
+        <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="*" element={<Navigate to="/404" />} />
+      </Route>
+      <Route path="/404" element={<NotFoundPage />} />
+    </Routes>
+  );
+};
+
+export default App;
